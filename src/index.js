@@ -4,6 +4,17 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+
+navigator.serviceWorker.register('./firebase-messaging-sw.js').then(function(reg) {
+    if(reg.installing) {
+        console.log('Service worker installing');
+    } else if(reg.waiting) {
+        console.log('Service worker installed');
+    } else if(reg.active) {
+        console.log('Service worker active');
+    }
+})
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
