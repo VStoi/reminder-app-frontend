@@ -2,7 +2,7 @@ import axios from 'axios';
 
 class Http {
     api = {
-        common: process.env.REACT_APP_BACKEND_URL
+        common: "http://localhost:4000"
     };
 
     static createInstance(params) {

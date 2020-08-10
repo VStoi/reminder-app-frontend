@@ -1,4 +1,4 @@
-import {SignInPage} from "./pages/sign-in";
+import SignInPage from "./pages/sign-in";
 import {SignUpPage} from "./pages/sign-up";
 
 export const ROUTING = {
