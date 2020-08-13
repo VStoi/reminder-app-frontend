@@ -7,7 +7,7 @@ import { signInAction } from "../../redux/actions";
 import { useDispatch } from "react-redux";
 import {connect} from "react-redux";
 
-import "./sign-in-page.scss"
+import "./sign-in.scss"
 
 
 const SignInPage = ({signIn}) => {

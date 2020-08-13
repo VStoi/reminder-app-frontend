@@ -1,25 +1,28 @@
 import React from "react";
 import {
-    BrowserRouter as Router,
+    Router,
     Switch,
     Route
 } from "react-router-dom";
 import {ROUTING} from "./routingInfo"
+import history from "./services/history";
 import {PrivateRoute} from "./helpers/PrivateRoute";
 import {isAuth} from "./helpers/isAuth";
 
 
 export const routing = () => {
     return(
-        <Router>
+        <Router history={history}>
             <Switch>
-                <Route path={ROUTING.SIGN_IN.path}>
-                    <ROUTING.SIGN_IN.component />
+                <Route exact path={ROUTING.SIGN_UP.path}>
+                    <ROUTING.SIGN_UP.component/>
                 </Route>
-                <Route path={ROUTING.SIGN_UP.path}>
-                    <ROUTING.SIGN_UP.component />
-                </Route>
-                <PrivateRoute routeGuards={isAuth()} path={"/"} redirectTo={"/ss"} component={ROUTING.SIGN_UP.component}/>
+                <PrivateRoute
+                    routeGuards={!isAuth()}
+                    path={ROUTING.SIGN_IN.path}
+                    redirectTo={"/app"}
+                    component={ROUTING.SIGN_IN.component}
+                />
             </Switch>
         </Router>
     )
