@@ -1,5 +1,9 @@
 import React from 'react';
+import { Provider } from 'react-redux';
+import store from "./redux/store";
 import './App.scss';
+import 'antd/dist/antd.css';
+
 import {messaging} from "./services/init-fcm";
 import {routing} from "./Routes";
 
@@ -17,7 +21,13 @@ function App() {
     });
   })
 
-  return routing();
+  return (
+      <div className="App">
+        <Provider store={store}>
+          {routing()}
+        </Provider>
+      </div>
+  )
 }
 
 export default App;

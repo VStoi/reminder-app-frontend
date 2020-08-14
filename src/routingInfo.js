@@ -1,5 +1,5 @@
-import {SignInPage} from "./pages/sign-in";
-import {SignUpPage} from "./pages/sign-up";
+import SignInPage from "./pages/sign-in";
+import SignUpPage from "./pages/sign-up";
 
 export const ROUTING = {
     SIGN_IN: {
