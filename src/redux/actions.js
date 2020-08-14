@@ -12,14 +12,14 @@ export const signInAction = (data) => dispatch => {
     return new UserService().login(data)
         .then((payload) => {
             const {session, user} = payload.data;
-            store.set("SESSION", session)
-            store.set("PROFILE", user)
-            dispatch({type: SIGN_IN.SUCCESS})
-            history.push("/app")
+            store.set("SESSION", session);
+            store.set("PROFILE", user);
+            dispatch({type: SIGN_IN.SUCCESS});
+            history.push("/app");
         })
         .catch((err) => {
-            dispatch({type: SIGN_IN.FAIL})
-        })
+            dispatch({type: SIGN_IN.FAIL});
+        });
 };
 
 export const signUpActions = (data) => dispatch => {
@@ -27,10 +27,10 @@ export const signUpActions = (data) => dispatch => {
 
     return new UserService().signup(data)
         .then(() => {
-            dispatch({type: SIGN_UP.SUCCESS})
-            history.push("/sign-in")
+            dispatch({type: SIGN_UP.SUCCESS});
+            history.push("/sign-in");
         })
         .catch((error) => {
-            dispatch({type: SIGN_UP.FAIL})
+            dispatch({type: SIGN_UP.FAIL});
         })
 }

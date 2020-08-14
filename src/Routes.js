@@ -26,4 +26,4 @@ export const routing = () => {
             </Switch>
         </Router>
     )
-}
+};

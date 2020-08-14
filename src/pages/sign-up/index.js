@@ -1,13 +1,13 @@
 import React from "react";
-import {Formik} from 'formik';
+import {Formik} from "formik";
 import * as Yup from 'yup';
 import {Input, Button} from 'antd';
 import {Link} from "react-router-dom";
-import {signInAction, signUpActions} from "../../redux/actions";
+import {signUpActions} from "../../redux/actions";
 import {useDispatch} from "react-redux";
 import {connect} from "react-redux";
 
-import "./sign-up.scss"
+import "./sign-up.scss";
 
 
 const SignUpPage = ({signUp}) => {
@@ -28,14 +28,14 @@ const SignUpPage = ({signUp}) => {
             .min(6)
             .max(50)
             .required("Required")
-    })
+    });
     const handleSubmit = (data) => {
-        dispatch(signUpActions(data))
-    }
+        dispatch(signUpActions(data));
+    };
     return (
         <div className="sign-up-wrapper">
             <Formik
-                initialValues={{email: '', password: '', firstName: '', lastName: ''}}
+                initialValues={{email: "", password: "", firstName: "", lastName: ""}}
                 validationSchema={validateSchema}
                 onSubmit={handleSubmit}
             >
@@ -108,7 +108,7 @@ const mapStateToProps = (state) => {
     const {signUp} = state;
     return {
         signUp: signUp
-    }
+    };
 };
 
 export default connect(mapStateToProps)(SignUpPage);

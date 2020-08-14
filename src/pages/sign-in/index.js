@@ -7,27 +7,27 @@ import { signInAction } from "../../redux/actions";
 import { useDispatch } from "react-redux";
 import {connect} from "react-redux";
 
-import "./sign-in.scss"
+import "./sign-in.scss";
 
 
 const SignInPage = ({signIn}) => {
     const dispatch = useDispatch();
-     const validateSchema = Yup.object({
-            email: Yup.string()
-                .email('Invalid email address')
-                .required('Required'),
-            password: Yup.string()
-                .min(6)
-                .max(50)
-                .required("Required")
-        })
+    const validateSchema = Yup.object({
+        email: Yup.string()
+            .email('Invalid email address')
+            .required('Required'),
+        password: Yup.string()
+            .min(6)
+            .max(50)
+            .required("Required")
+    });
     const handleSubmit = (data) => {
-         dispatch(signInAction(data))
-    }
+        dispatch(signInAction(data))
+    };
     return (
         <div className="sign-in-wrapper">
             <Formik
-                initialValues={{ email: '', password: '' }}
+                initialValues={{email: "", password: ""}}
                 validationSchema={validateSchema}
                 onSubmit={handleSubmit}
             >
@@ -37,9 +37,7 @@ const SignInPage = ({signIn}) => {
                       touched,
                       handleChange,
                       handleBlur,
-                      handleSubmit,
-                      isSubmitting,
-                      /* and other goodies */
+                      handleSubmit
                   }) => (
                     <form onSubmit={handleSubmit}>
                         <p className="Sign_in__input_label">Email</p>
@@ -62,7 +60,12 @@ const SignInPage = ({signIn}) => {
                             value={values.password}
                         />
                         <div className="error">{errors.password && touched.password && errors.password}</div>
-                        <Button className="Sign_in__submit" type="primary" onClick={handleSubmit} disabled={signIn.isLoading}>
+                        <Button
+                            className="Sign_in__submit"
+                            type="primary"
+                            onClick={handleSubmit}
+                            disabled={signIn.isLoading}
+                        >
                             Submit
                         </Button>
                         <p>Don't have an account? <Link to="/sign-up">Sign Up</Link></p>
@@ -77,7 +80,7 @@ const mapStateToProps = (state) => {
     const {signIn} = state;
     return {
         signIn: signIn
-    }
+    };
 };
 
 export default connect(mapStateToProps)(SignInPage);
