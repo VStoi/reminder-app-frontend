@@ -2,6 +2,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/38d433a497d7473894fa42065350850c)](https://app.codacy.com/gh/VStoi/reminder-app-frontend?utm_source=github.com&utm_medium=referral&utm_content=VStoi/reminder-app-frontend&utm_campaign=Badge_Grade_Dashboard)
+
 In the project directory, you can run:
 
 ### `npm start`
